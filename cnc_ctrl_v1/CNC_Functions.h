@@ -385,7 +385,7 @@ void  singleAxisMove(Axis* axis, float endPos, float MMPerMin){
     //the argument to abs should only be a variable -- splitting calc into 2 lines
     long finalNumberOfSteps    = moveDist/stepSizeMM;      //number of steps taken in move
     finalNumberOfSteps = abs(finalNumberOfSteps);
-
+    
     float delayTime = calculateDelay(stepSizeMM, MMPerMin);
     
     long numberOfStepsTaken    = 0;
