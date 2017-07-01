@@ -29,6 +29,13 @@ void setup(){
     
     Serial.println("Grbl v1.00");
     
+    if(pcbRevisionIndicator == 0){
+        Serial.println("PCB v1.1 Detected");
+    } 
+    if(pcbRevisionIndicator == 1){
+        Serial.println("Beta PCB v1.0 Detected");
+    }
+    
 }
 
 void runsOnATimer(){

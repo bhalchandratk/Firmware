@@ -67,6 +67,33 @@ bool zAxisAttached = false;
 #define AUX4 14
 #define Probe AUX4 // use this input for zeroing zAxis with G38.2 gcode
 
+
+//Detect PCB version and set up pins for that board
+int pcbRevisionIndicator = digitalRead(22);
+
+if(pcbRevisionIndicator == 0){
+    int ENCODER1A 18
+    int ENCODER1B 19
+    int ENCODER2A 20
+    int ENCODER2B 21
+    int ENCODER3A 2
+    int ENCODER3B 3
+
+    int IN1 6
+    int IN2 4
+    int IN3 9
+    int IN4 7
+    int IN5 10
+    int IN6 11
+
+    int ENA 5
+    int ENB 8
+    int ENC 12
+} 
+if(pcbRevisionIndicator == 1){
+    Serial.println("Beta PCB v1.0 Detected");
+}
+
 Axis leftAxis (ENC, IN6, IN5, ENCODER3B, ENCODER3A, "Left-axis",   LEFT_EEPROM_ADR, DISTPERROT, ENCODERSTEPS);
 Axis rightAxis(ENA, IN1, IN2, ENCODER2A, ENCODER2B, "Right-axis", RIGHT_EEPROM_ADR, DISTPERROT, ENCODERSTEPS);
 Axis zAxis    (ENB, IN3, IN4, ENCODER1A, ENCODER1B, "Z-Axis",         Z_EEPROM_ADR, ZDISTPERROT, ZENCODERSTEPS);
